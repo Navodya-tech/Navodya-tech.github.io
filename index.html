@@ -339,11 +339,45 @@
     /* Footer */
     footer {
       background: linear-gradient(135deg, #4b0082, #6a0dad);
-      padding: 30px 20px;
+      padding: 40px 20px;
+      border-top: 2px solid #ffd700;
     }
 
     footer p {
-      margin: 0;
+      margin: 8px 0;
+      color: #ffffff;
+    }
+
+    footer .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    footer .footer-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    footer .footer-column h6 {
+      color: #ffd700;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    footer .footer-column p {
+      color: #b0b0b0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    footer .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255, 215, 0, 0.2);
+      padding-top: 20px;
+      color: #b0b0b0;
+      font-size: 0.85rem;
     }
 
     /* Responsive */
@@ -358,6 +392,10 @@
 
       .section-title {
         font-size: 2rem;
+      }
+
+      footer .footer-section {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -399,26 +437,15 @@
   <h2 class="section-title">About Me</h2>
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-6">
-        <p style="font-size: 1.1rem; line-height: 1.8;">
-          I am a passionate software developer and QA enthusiast from Sri Lanka with expertise in full-stack development. 
-          I specialize in Java EE development and have hands-on experience building real-world systems like eCommerce platforms, 
-          ERP systems, and enterprise applications.
+      <div class="col-lg-12">
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+          I'm a results-driven full-stack developer and quality assurance professional with a strong foundation in Java enterprise application development. With expertise spanning both backend and frontend technologies, I build scalable, maintainable applications that solve real-world business challenges.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+          My approach combines solid software engineering practices with a deep commitment to quality assurance. I specialize in designing comprehensive test strategies, identifying critical issues early in the development cycle, and collaborating with development teams to ensure products meet the highest standards before release.
         </p>
         <p style="font-size: 1.1rem; line-height: 1.8;">
-          Beyond development, I'm committed to improving software quality through structured testing, detailed bug reporting, and QA best practices. 
-          I believe in writing clean, maintainable code and delivering products that exceed expectations.
-        </p>
-      </div>
-      <div class="col-lg-6">
-        <p style="font-size: 1.1rem; line-height: 1.8;">
-          <strong style="color: #ffd700;">Experience:</strong> Full-stack development with Java, Spring Framework, Hibernate, and MySQL. Expertise in QA methodologies, test automation, and API testing.
-        </p>
-        <p style="font-size: 1.1rem; line-height: 1.8;">
-          <strong style="color: #ffd700;">Location:</strong> Sri Lanka
-        </p>
-        <p style="font-size: 1.1rem; line-height: 1.8;">
-          <strong style="color: #ffd700;">Focus:</strong> Creating scalable, maintainable applications with comprehensive testing and quality assurance.
+          With hands-on experience in building eCommerce platforms, ERP systems, and enterprise applications, I bring both technical depth and practical problem-solving skills to every project. I'm passionate about writing clean code, implementing best practices, and continuously improving software quality through structured testing and detailed analysis.
         </p>
       </div>
     </div>
@@ -610,9 +637,26 @@
 </section>
 
 <!-- Footer -->
-<footer class="text-center">
-  <p>&copy; 2026 Punsisi Navodya | Full-Stack Developer & QA Enthusiast</p>
-  <p style="font-size: 0.9rem; color: #b0b0b0; margin-top: 10px;">Built with HTML, CSS, Bootstrap & ❤️</p>
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <div class="footer-column">
+        <h6><i class="fas fa-code"></i> Technical Focus</h6>
+        <p>Full-stack Java development with expertise in enterprise applications, eCommerce systems, and quality assurance. Dedicated to writing clean, maintainable code and delivering high-quality software solutions.</p>
+      </div>
+      <div class="footer-column">
+        <h6><i class="fas fa-graduation-cap"></i> Continuous Learning</h6>
+        <p>Committed to staying current with industry best practices and emerging technologies. Actively improving skills in software architecture, testing methodologies, and modern development frameworks.</p>
+      </div>
+      <div class="footer-column">
+        <h6><i class="fas fa-handshake"></i> Collaboration</h6>
+        <p>Passionate about working with teams to build exceptional products. Strong communicator with experience in Agile environments and a focus on delivering solutions that exceed expectations.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Punsisi Navodya. All rights reserved. | Full-Stack Developer & QA Enthusiast | Sri Lanka</p>
+    </div>
+  </div>
 </footer>
 
 <!-- Bootstrap JS -->
