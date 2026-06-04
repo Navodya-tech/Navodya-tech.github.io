@@ -3,15 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navodya Portfolio</title>
+  <title>Navodya Portfolio - Full-Stack Developer & QA Enthusiast</title>
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
@@ -21,17 +30,32 @@
 
     /* Navbar */
     .navbar {
-      background: #4b0082 !important;
+      background: rgba(75, 0, 130, 0.95) !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #ffd700, #ffea70);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .navbar a {
       color: white !important;
       font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ffd700 !important;
     }
 
     /* Sections */
     section {
-      padding: 70px 20px;
+      padding: 80px 20px;
       background-color: #0f0f1a;
     }
 
@@ -44,13 +68,48 @@
       background: linear-gradient(135deg, #6a0dad, #8a2be2);
       color: white;
       text-align: center;
-      padding: 120px 20px;
+      padding: 150px 20px;
       animation: fadeIn 1.5s ease-in;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: rgba(255, 215, 0, 0.1);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 700;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero h4 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Buttons */
@@ -60,11 +119,32 @@
       font-weight: bold;
       border: none;
       transition: 0.3s;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn-custom:hover {
       background: #e6c200;
-      transform: scale(1.05);
+      transform: scale(1.1);
+      box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .btn-outline-custom {
+      background: transparent;
+      color: #ffd700;
+      border: 2px solid #ffd700;
+      font-weight: bold;
+      border-radius: 50px;
+      padding: 10px 28px;
+      transition: 0.3s;
+    }
+
+    .btn-outline-custom:hover {
+      background: #ffd700;
+      color: black;
+      box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
     }
 
     /* Titles */
@@ -72,21 +152,114 @@
       text-align: center;
       color: #ffd700;
       font-weight: 700;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #ffd700, #8a2be2);
+      margin: 20px auto;
     }
 
     /* Cards */
     .card {
       background-color: #1c1c33;
       color: white;
-      border: none;
+      border: 2px solid rgba(255, 215, 0, 0.1);
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      transition: 0.3s;
+      transition: 0.4s;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+      transition: 0.6s;
+    }
+
+    .card:hover::before {
+      left: 100%;
     }
 
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-15px);
+      border-color: rgba(255, 215, 0, 0.5);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    }
+
+    .card h5 {
+      color: #ffd700;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .card-link {
+      color: #8a2be2;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .card-link:hover {
+      color: #ffd700;
+    }
+
+    /* Skills Section */
+    .skill-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .skill-item h5 {
+      color: #ffd700;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .skill-badge {
+      display: inline-block;
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+
+    /* Experience Section */
+    .experience-item {
+      border-left: 4px solid #ffd700;
+      padding-left: 20px;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: rgba(255, 215, 0, 0.05);
+      border-radius: 5px;
+    }
+
+    .experience-item h5 {
+      color: #ffd700;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .experience-item p {
+      color: #b0b0b0;
+      margin-bottom: 8px;
     }
 
     /* Links */
@@ -97,6 +270,34 @@
 
     a:hover {
       color: #ffea70;
+    }
+
+    /* Social Icons */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 215, 0, 0.1);
+      border: 2px solid #ffd700;
+      border-radius: 50%;
+      transition: 0.3s;
+      color: #ffd700;
+      font-size: 1.3rem;
+    }
+
+    .social-icon:hover {
+      background: #ffd700;
+      color: black;
+      transform: translateY(-5px);
     }
 
     /* Animation */
@@ -111,93 +312,269 @@
       }
     }
 
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(20px);
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animate-slide {
+      animation: slideIn 0.6s ease-out;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #4b0082, #6a0dad);
+      padding: 30px 20px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero h4 {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg px-3">
-  <a class="navbar-brand fw-bold" href="#">Navodya Tech</a>
-  <div class="ms-auto">
-    <a class="me-3" href="#skills">Skills</a>
-    <a class="me-3" href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+<nav class="navbar navbar-expand-lg px-3 sticky-top">
+  <a class="navbar-brand fw-bold" href="#home">Navodya Tech</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="ms-auto">
+      <a class="me-3" href="#skills">Skills</a>
+      <a class="me-3" href="#experience">Experience</a>
+      <a class="me-3" href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
 </nav>
 
 <!-- Hero -->
-<section class="hero">
+<section id="home" class="hero">
   <h1>Punsisi Navodya</h1>
   <h4>Full-Stack Developer | QA Enthusiast</h4>
-  <p>Building Java applications & improving software quality through testing.</p>
+  <p>Building robust Java applications & ensuring software quality through comprehensive testing. Passionate about creating scalable systems and delivering excellent user experiences.</p>
 
-  <a class="btn btn-custom m-2" href="https://github.com/Navodya-tech" target="_blank">GitHub</a>
-  <a class="btn btn-custom m-2" href="#">LinkedIn</a>
+  <div>
+    <a class="btn btn-custom m-2" href="https://github.com/Navodya-tech" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+    <a class="btn btn-custom m-2" href="https://www.linkedin.com/in/navodya-tech/" target="_blank">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+  </div>
 </section>
 
 <!-- About -->
-<section>
+<section id="about">
   <h2 class="section-title">About Me</h2>
-  <p class="text-center mx-auto" style="max-width:700px;">
-    I am a passionate software developer and QA enthusiast from Sri Lanka.
-    I specialize in Java EE development and enjoy building real-world systems
-    like eCommerce platforms and ERP systems while improving software quality
-    through structured testing.
-  </p>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+          I am a passionate software developer and QA enthusiast from Sri Lanka with expertise in full-stack development. 
+          I specialize in Java EE development and have hands-on experience building real-world systems like eCommerce platforms, 
+          ERP systems, and enterprise applications.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+          Beyond development, I'm committed to improving software quality through structured testing, detailed bug reporting, and QA best practices. 
+          I believe in writing clean, maintainable code and delivering products that exceed expectations.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <div class="social-links">
+          <a href="https://github.com/Navodya-tech" target="_blank" class="social-icon" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/navodya-tech/" target="_blank" class="social-icon" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="mailto:navodya.tech@gmail.com" class="social-icon" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Skills -->
 <section id="skills" class="section-light">
-  <h2 class="section-title">Skills</h2>
+  <h2 class="section-title">Technical Skills</h2>
 
   <div class="container">
-    <div class="row text-center">
+    <div class="row">
 
-      <div class="col-md-4">
-        <h5>Frontend</h5>
-        <p>HTML, CSS, Bootstrap, JavaScript</p>
+      <div class="col-md-4 skill-item">
+        <h5><i class="fas fa-code"></i> Frontend</h5>
+        <p>
+          <span class="skill-badge">HTML5</span>
+          <span class="skill-badge">CSS3</span>
+          <span class="skill-badge">Bootstrap</span>
+          <span class="skill-badge">JavaScript</span>
+        </p>
       </div>
 
-      <div class="col-md-4">
-        <h5>Backend</h5>
-        <p>Java, Servlets, Hibernate, MySQL</p>
+      <div class="col-md-4 skill-item">
+        <h5><i class="fas fa-server"></i> Backend</h5>
+        <p>
+          <span class="skill-badge">Java</span>
+          <span class="skill-badge">Servlets</span>
+          <span class="skill-badge">JSP</span>
+          <span class="skill-badge">Hibernate</span>
+          <span class="skill-badge">Spring</span>
+        </p>
       </div>
 
-      <div class="col-md-4">
-        <h5>QA</h5>
-        <p>Test Cases, Bug Reporting, Manual Testing</p>
+      <div class="col-md-4 skill-item">
+        <h5><i class="fas fa-database"></i> Database & Tools</h5>
+        <p>
+          <span class="skill-badge">MySQL</span>
+          <span class="skill-badge">Git</span>
+          <span class="skill-badge">Maven</span>
+          <span class="skill-badge">Postman</span>
+        </p>
       </div>
 
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-6 skill-item">
+        <h5><i class="fas fa-vial"></i> QA & Testing</h5>
+        <p>
+          <span class="skill-badge">Test Case Design</span>
+          <span class="skill-badge">Manual Testing</span>
+          <span class="skill-badge">Bug Reporting</span>
+          <span class="skill-badge">API Testing</span>
+          <span class="skill-badge">Test Automation</span>
+        </p>
+      </div>
+
+      <div class="col-md-6 skill-item">
+        <h5><i class="fas fa-cogs"></i> Methodologies</h5>
+        <p>
+          <span class="skill-badge">Agile</span>
+          <span class="skill-badge">SDLC</span>
+          <span class="skill-badge">OOP</span>
+          <span class="skill-badge">MVC</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+  <h2 class="section-title">Experience</h2>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+
+        <div class="experience-item">
+          <h5>Full-Stack Developer</h5>
+          <p style="color: #ffd700; margin-bottom: 10px;"><strong>Personal Projects</strong> | 2024 - Present</p>
+          <p>Developed and maintained multiple full-stack applications including eCommerce platforms and ERP systems using Java, Hibernate, and MySQL. Implemented responsive user interfaces with Bootstrap and JavaScript. Focused on code quality and performance optimization.</p>
+        </div>
+
+        <div class="experience-item">
+          <h5>QA Engineer & Developer</h5>
+          <p style="color: #ffd700; margin-bottom: 10px;"><strong>Self-Directed Learning</strong> | 2023 - Present</p>
+          <p>Designed comprehensive test cases and executed manual testing for various applications. Created detailed bug reports and documented issues for development teams. Performed API testing using Postman and validated data integrity across systems.</p>
+        </div>
+
+        <div class="experience-item">
+          <h5>Java Developer (Learning & Development)</h5>
+          <p style="color: #ffd700; margin-bottom: 10px;"><strong>Continuous Skill Development</strong> | 2022 - Present</p>
+          <p>Mastered Java programming fundamentals and advanced concepts including servlets, JSP, Hibernate ORM, and Spring framework. Built multiple projects demonstrating proficiency in enterprise application development.</p>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Projects -->
-<section id="projects">
-  <h2 class="section-title">Projects</h2>
+<section id="projects" class="section-light">
+  <h2 class="section-title">Featured Projects</h2>
 
   <div class="container">
     <div class="row g-4">
 
-      <div class="col-md-4">
-        <div class="card p-3">
-          <h5>Electro Store</h5>
-          <p>E-commerce system for electronics.</p>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-4">
+          <h5><i class="fas fa-shopping-cart"></i> Electro Store</h5>
+          <p>A comprehensive e-commerce system for electronics featuring product catalog, shopping cart, order management, and payment integration. Built with Java, Hibernate, and MySQL with Bootstrap frontend.</p>
+          <div>
+            <span class="skill-badge" style="font-size: 0.85rem;">Java</span>
+            <span class="skill-badge" style="font-size: 0.85rem;">MySQL</span>
+            <span class="skill-badge" style="font-size: 0.85rem;">Bootstrap</span>
+          </div>
+          <a href="https://github.com/Navodya-tech" target="_blank" class="card-link">
+            View on GitHub <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="card p-3">
-          <h5>ERP System</h5>
-          <p>Order and inventory management system.</p>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-4">
+          <h5><i class="fas fa-cube"></i> ERP System</h5>
+          <p>Enterprise Resource Planning system handling order management, inventory tracking, and reporting. Implements complex business logic with multi-user support and real-time data synchronization.</p>
+          <div>
+            <span class="skill-badge" style="font-size: 0.85rem;">Java</span>
+            <span class="skill-badge" style="font-size: 0.85rem;">Hibernate</span>
+            <span class="skill-badge" style="font-size: 0.85rem;">JSP</span>
+          </div>
+          <a href="https://github.com/Navodya-tech" target="_blank" class="card-link">
+            View on GitHub <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="card p-3">
-          <h5>QA Portfolio</h5>
-          <p>Test cases, bug reports and API testing.</p>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-4">
+          <h5><i class="fas fa-clipboard-check"></i> QA Portfolio</h5>
+          <p>Comprehensive quality assurance documentation including test cases, bug reports, and API testing results. Demonstrates expertise in testing methodologies and QA best practices.</p>
+          <div>
+            <span class="skill-badge" style="font-size: 0.85rem;">Testing</span>
+            <span class="skill-badge" style="font-size: 0.85rem;">Postman</span>
+            <span class="skill-badge" style="font-size: 0.85rem;">QA</span>
+          </div>
+          <a href="https://github.com/Navodya-tech" target="_blank" class="card-link">
+            View on GitHub <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </div>
 
@@ -206,16 +583,43 @@
 </section>
 
 <!-- Contact -->
-<section id="contact" class="section-light text-center">
-  <h2 class="section-title">Contact</h2>
-  <p>Email: your-email@example.com</p>
-  <p>GitHub: https://github.com/Navodya-tech</p>
+<section id="contact">
+  <h2 class="section-title">Get In Touch</h2>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <p style="font-size: 1.1rem; margin-bottom: 30px;">
+          I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
+        </p>
+
+        <div style="margin-bottom: 30px;">
+          <a href="mailto:navodya.tech@gmail.com" class="btn btn-custom m-2">
+            <i class="fas fa-envelope"></i> Send Email
+          </a>
+          <a href="https://www.linkedin.com/in/navodya-tech/" target="_blank" class="btn btn-outline-custom m-2">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+
+        <div style="background: rgba(255, 215, 0, 0.05); padding: 30px; border-radius: 10px; border-left: 4px solid #ffd700;">
+          <p><strong>Email:</strong> navodya.tech@gmail.com</p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/Navodya-tech" target="_blank">github.com/Navodya-tech</a></p>
+          <p><strong>Location:</strong> Sri Lanka</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Footer -->
-<footer class="text-center p-3" style="background:#4b0082; color:white;">
-  © 2026 Navodya Portfolio
+<footer class="text-center">
+  <p>&copy; 2026 Punsisi Navodya | Full-Stack Developer & QA Enthusiast</p>
+  <p style="font-size: 0.9rem; color: #b0b0b0; margin-top: 10px;">Built with HTML, CSS, Bootstrap & ❤️</p>
 </footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
