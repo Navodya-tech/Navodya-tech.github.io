@@ -84,106 +84,87 @@
         margin-bottom: 20px;
     }
 }
-
-    .edu-timeline {
+    
+   /* Hero */
+.hero {
+  background: linear-gradient(135deg, #6a0dad, #8a2be2);
+  color: white;
+  text-align: center;
+  padding: 150px 20px;
+  animation: fadeIn 1.5s ease-in;
   position: relative;
-  margin-left: 20px;
-  padding-left: 20px;
-  border-left: 3px solid #ffd700;
+  overflow: hidden;
 }
 
-.edu-item {
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.edu-dot {
+/* Floating background circle */
+.hero::before {
+  content: '';
   position: absolute;
-  left: -30px;
-  top: 5px;
-  width: 15px;
-  height: 15px;
-  background: #ffd700;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 215, 0, 0.1);
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  animation: float 6s ease-in-out infinite;
 }
 
-.edu-content {
-  background: #1c1c33;
-  padding: 15px 20px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  transition: 0.3s;
-}
-
-.edu-content:hover {
-  transform: translateX(5px);
-  border-color: rgba(255, 215, 0, 0.6);
-}
-
-.edu-content h5 {
+/* "Hi, I'm" (NEW SIZE + ANIMATION) */
+.hero-hi {
+  font-size: 2.2rem;   /* increased size */
+  font-weight: 600;
   color: #ffd700;
   margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1s ease-out;
 }
 
-.edu-place {
-  color: #b0b0b0;
-  margin-bottom: 5px;
+/* Name */
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  animation: fadeUp 1.1s ease-out;
 }
 
-.edu-year {
-  color: #ffffff;
-  font-size: 0.9rem;
+/* Role line (UPDATED COLOR + ANIMATION) */
+.hero-role {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #b388ff; /* new soft purple */
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1.3s ease-out;
 }
-    
-    /* Hero */
-    .hero {
-      background: linear-gradient(135deg, #6a0dad, #8a2be2);
-      color: white;
-      text-align: center;
-      padding: 150px 20px;
-      animation: fadeIn 1.5s ease-in;
-      position: relative;
-      overflow: hidden;
-    }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      background: rgba(255, 215, 0, 0.1);
-      border-radius: 50%;
-      animation: float 6s ease-in-out infinite;
-    }
+/* Paragraph */
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeUp 1.5s ease-out;
+}
 
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .hero h4 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      position: relative;
-      z-index: 1;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+/* Fade up animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
     /* Buttons */
     .btn-custom {
@@ -314,26 +295,51 @@
       font-size: 0.9rem;
     }
 
-    /* Experience Section */
-    .experience-item {
-      border-left: 4px solid #ffd700;
-      padding-left: 20px;
-      margin-bottom: 30px;
-      padding: 20px;
-      background: rgba(255, 215, 0, 0.05);
-      border-radius: 5px;
-    }
+    .exp-timeline {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 3px solid #ffd700;
+}
 
-    .experience-item h5 {
-      color: #ffd700;
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
+.exp-item {
+  position: relative;
+  margin-bottom: 30px;
+}
 
-    .experience-item p {
-      color: #b0b0b0;
-      margin-bottom: 8px;
-    }
+.exp-dot {
+  position: absolute;
+  left: -30px;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  background: #ffd700;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.exp-content {
+  background: #1c1c33;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  transition: 0.3s;
+}
+
+.exp-content:hover {
+  transform: translateX(5px);
+  border-color: rgba(255, 215, 0, 0.6);
+}
+
+.exp-content h5 {
+  color: #ffd700;
+  margin-bottom: 8px;
+}
+
+.exp-content p {
+  color: #b0b0b0;
+  margin-bottom: 8px;
+}
 
     /* Links */
     a {
@@ -501,7 +507,7 @@
 
       <!-- Profile Photo -->
       <div class="col-lg-4 text-center">
-        <img src="images/profile.jpg"
+        <img src="images/profile.jpeg"
              alt="Navodya Hettiarachchi"
              class="profile-img">
       </div>
@@ -509,14 +515,13 @@
       <!-- Hero Content -->
       <div class="col-lg-8 text-center text-lg-start">
 
-        <h4 style="color:#ffd700;">Hi, I'm</h4>
+        <h4 class="hero-hi">Hi, I'm</h4>
 
-        <h1>Navodya Hettiarachchi</h1>
+         <h1>Navodya Hettiarachchi</h1>
 
-        <h4>
-          Software Engineering Undergraduate |
-          Aspiring Quality Assurance Engineer
-        </h4>
+      <h4 class="hero-role">
+          Software Engineering Undergraduate | Aspiring Quality Assurance Engineer
+      </h4>
 
         <p>
           Passionate about software quality and continuous improvement.
@@ -564,23 +569,20 @@
   </div>
 </section>
 
-  <!-- Education -->
+<!-- Education -->
 <section id="education">
   <h2 class="section-title">Education</h2>
 
   <div class="container">
 
-    <div class="edu-timeline">
-
-      <div class="edu-item">
-        <div class="edu-dot"></div>
-        <div class="edu-content">
-          <h5>BSc (Hons) Software Engineering</h5>
-          <p class="edu-place">BCU, UK | via Java Institute for Advanced Technology</p>
-          <p class="edu-year">2023 – Present</p>
-        </div>
-      </div>
-
+   <div class="exp-content">
+      <h5>BSc (Hons) Software Engineering</h5>
+      <p style="color:#ffd700;">
+        BCU, UK | via Java Institute for Advanced Technology
+      </p>
+      <p style="color:#b0b0b0;">
+        2023 – Present
+      </p>
     </div>
 
   </div>
@@ -659,29 +661,61 @@
   <h2 class="section-title">Experience</h2>
 
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
 
-        <div class="experience-item">
+    <div class="exp-timeline">
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
           <h5>QA Learner & Manual Tester</h5>
-          <p style="color: #ffd700; margin-bottom: 10px;"><strong>Quality Assurance Development</strong> | 2025 - Present</p>
-          <p>Currently expanding expertise in quality assurance and manual testing. Learning test case design, manual testing techniques, and QA best practices. Analyzing applications to identify potential issues and understanding the importance of thorough testing in software development lifecycle.</p>
+          <p style="color:#ffd700; margin-bottom:5px;">
+            Quality Assurance Development | 2025 - Present
+          </p>
+          <p>
+            Currently expanding expertise in quality assurance and manual testing.
+            Learning test case design, manual testing techniques, and QA best practices.
+            Analyzing applications to identify potential issues and understanding the importance
+            of thorough testing in software development lifecycle.
+          </p>
         </div>
-
-        <div class="experience-item">
-          <h5>Full-Stack Developer</h5>
-          <p style="color: #ffd700; margin-bottom: 10px;"><strong>Web, Desktop & Mobile Development</strong> | 2023 - Present</p>
-          <p>Developed and maintained multiple full-stack applications across diverse platforms including web, desktop, and mobile. Built comprehensive Java Swing desktop applications with MySQL backend for business management and ERP systems. Developed Android m-commerce applications and React Native mobile solutions. Created web applications using PHP, HTML, CSS, and Bootstrap. Experienced with responsive UI/UX implementation and complex business logic implementation.</p>
-        </div>
-
-        <div class="experience-item">
-          <h5>Continuous Skill Development</h5>
-          <p style="color: #ffd700; margin-bottom: 10px;"><strong>Self-Directed Learning & Projects</strong> | 2023 - Present</p>
-          <p>Mastered full-stack development across multiple technologies including Java (desktop and Android), React Native, TypeScript, PHP, and web technologies. Built 6+ production-ready applications demonstrating proficiency in system design, database management, UI development, and mobile app development. Strong commitment to continuous learning and staying updated with industry best practices.</p>
-        </div>
-
       </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
+          <h5>Full-Stack Developer</h5>
+          <p style="color:#ffd700; margin-bottom:5px;">
+            Web, Desktop & Mobile Development | 2023 - Present
+          </p>
+          <p>
+            Developed and maintained multiple full-stack applications across diverse platforms
+            including web, desktop, and mobile. Built comprehensive Java Swing desktop applications
+            with MySQL backend for business management and ERP systems. Developed Android m-commerce
+            applications and React Native mobile solutions. Created web applications using PHP,
+            HTML, CSS, and Bootstrap. Experienced with responsive UI/UX implementation and complex
+            business logic implementation.
+          </p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
+          <h5>Continuous Skill Development</h5>
+          <p style="color:#ffd700; margin-bottom:5px;">
+            Self-Directed Learning & Projects | 2023 - Present
+          </p>
+          <p>
+            Mastered full-stack development across multiple technologies including Java (desktop and Android),
+            React Native, TypeScript, PHP, and web technologies. Built 6+ production-ready applications
+            demonstrating proficiency in system design, database management, UI development, and mobile app development.
+            Strong commitment to continuous learning and staying updated with industry best practices.
+          </p>
+        </div>
+      </div>
+
     </div>
+
   </div>
 </section>
 
