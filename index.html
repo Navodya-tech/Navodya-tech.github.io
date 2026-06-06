@@ -21,11 +21,6 @@
       box-sizing: border-box;
     }
 
-    html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 180px;
-}
-
     body {
       font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
@@ -58,44 +53,11 @@
       color: #ffd700 !important;
     }
 
-    .navbar-toggler {
-  border: none;
-}
-
-.navbar-toggler:focus {
-  box-shadow: none;
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-    @media (max-width: 991px) {
-  #navbarNav .ms-auto {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-    padding: 15px 0;
-  }
-
-  #navbarNav .ms-auto a {
-    display: block;
-    width: 100%;
-    padding: 10px 15px;
-  }
-}
-
     /* Sections */
     section {
       padding: 80px 20px;
       background-color: #0f0f1a;
-      scroll-margin-top: 180px;
     }
-
-    .section-title {
-  scroll-margin-top: 180px;
-}
 
     .section-light {
       background-color: #16162a;
@@ -584,7 +546,7 @@
 <nav class="navbar navbar-expand-lg px-3 sticky-top">
   <a class="navbar-brand fw-bold" href="#home">Navodya</a>
  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-  <span class="navbar-toggler-icon"></span>
+  <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
 </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <div class="ms-auto">
@@ -1015,17 +977,6 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-      
-<script>
-document.querySelectorAll(".navbar a").forEach(link => {
-  link.addEventListener("click", () => {
-    const navbar = document.querySelector(".navbar-collapse");
 
-    if (navbar.classList.contains("show")) {
-      new bootstrap.Collapse(navbar).hide();
-    }
-  });
-});
-</script>
 </body>
 </html>
